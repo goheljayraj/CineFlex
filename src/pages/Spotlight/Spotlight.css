@@ -78,8 +78,9 @@
     padding-top: 20px;
     font-size: 1rem;
     font-weight: 600;
-    color: #dadada;
+    color: #ffffff;
     margin-left: 20px;
+    text-shadow: 3px 3px 5px black;
 
 }
 .about-movie .category{
@@ -88,23 +89,32 @@
     color: #dfdfdf;
     font-size: 1.2rem;
     justify-content: flex-start;
+    text-shadow: 2px 2px 3px black;
+
 }
 .about-movie .category a{
     font-size: 1.2rem;
     margin-left: 10px;
-    color: red;
+    color: yellow;
+
+
 }
 .title-container .language{
     /*background-color: #434242;*/
     border-radius: 5px;
-    color: #dadada;
+    color: #ffffff;
     margin-top: 5px;
     /*width: 70px;*/
+    margin-left: 20px;
+    text-shadow: 3px 3px 5px black;
 
 
 }
 .title-container h2{
     margin-left: 20px;
+    margin-top: 10px;
+    color: #949aa5;
+    text-shadow: 3px 3px 5px black;
 
 }
 
@@ -222,7 +232,11 @@
 .about-movie .category a{
     font-size: 1.2rem;
     margin-left: 10px;
-    color: red;
+    color: yellow;
+    text-shadow: 3px 3px 3px black;
+    text-decoration: none;
+    
+
 }
 .title-container .language{
     /*background-color: #434242;*/
@@ -280,4 +294,89 @@
 
 .category{
     margin-bottom: 20px;
+}
+
+
+
+.category-rating .rating{
+    /*padding: 2px 5px;*/
+    width: 30px;
+    /*background-color: black;*/
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+
+}
+.about-movie .rating{
+    /*align-items: center;*/
+}
+.category-rating .rating img{
+    height: 15px;
+
+    padding: 0;
+}
+.about-movie .rating img{
+    height: 23px;
+
+    padding: 0px;
+}
+.category-rating .rating span{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 2px;
+    padding: 2px 5px;
+    background-color: #3e3c3c;
+    border-radius: 5px;
+}
+.about-movie .rating span{
+    font-size: 1.8rem;
+    font-weight: 600;
+
+    margin-left: 2px;
+    /*padding: 2px 5px;*/
+    color: white;
+
+}
+.category-rating .rating{
+    /*padding: 2px 5px;*/
+    width: 30px;
+    /*background-color: black;*/
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+
+}
+.about-movie .rating{
+    /*align-items: center;*/
+}
+.category-rating .rating img{
+    height: 15px;
+
+
+    padding: 0;
+}
+.about-movie .rating img{
+    height: 23px;
+
+    padding: 0px;
+}
+.category-rating .rating span{
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 2px;
+    padding: 2px 5px;
+    background-color: #3e3c3c;
+    border-radius: 5px;
+
+}
+.about-movie .rating span{
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 3px 3px 3px black;
+
+
+    margin-left: 2px;
+    /*padding: 2px 5px;*/
+    color: white;
+
 }

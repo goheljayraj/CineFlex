@@ -21,7 +21,11 @@ function Swipes(props){
     let topURL = props.url;
     const [tiles, setTiles] = useState([]);
 
+
+
+
     useEffect(() => {
+
         let res = [];
         fetch(topURL).then(res => res.json()).then(data => {
             data.results.forEach(topmovie => {
@@ -34,22 +38,30 @@ function Swipes(props){
                 }} key={id} url={IMG_URL + poster_path} movieName={title == null ? name : title} overview={overview}/>);
             });
             setTiles(res);
+
+
         });
     }, [props.id]);
+
+
+
+
 
 
     return (
         <>
             <Swiper style={{width: "95vw"}}
                 // install Swiper modules
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={25}
-                slidesPerView={5}
-                navigation
+                    modules={[Navigation, Pagination, Scrollbar, A11y]}
+                    spaceBetween={25}
+                    slidesPerView={5}
+                    navigation={true}
+                    initialSlide={props.xp}
+
                 // pagination={{ clickable: true }}
                 // scrollbar={{ draggable: true }}
-                onSwiper={(swiper) => console.log(swiper)}
-                onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    onSlideChange={() => console.log('slide change')}
             >
 
 
@@ -59,10 +71,6 @@ function Swipes(props){
                         {return <SwiperSlide>{x}</SwiperSlide>}
                     })
                 }
-
-
-
-
             </Swiper>
 
         </>

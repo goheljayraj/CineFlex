@@ -1,7 +1,7 @@
 .contacts-body{
     margin: 0;
     padding: 0;
-    background-image: url("res/contact-background.jpg");
+    background-image: url("../../res/contact-background.jpg");
     object-fit: cover;
     background-size: 100vw;
     /*background-size: cover;*/

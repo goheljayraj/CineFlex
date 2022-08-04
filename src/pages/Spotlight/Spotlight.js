@@ -2,15 +2,20 @@ import React, {useEffect, useState} from 'react';
 import './Spotlight.css'
 import Navbar from "../../components/Navbar/Navbar";
 import Swipes from "../../components/Swipes/Swipes";
+import ratingLogo from'../../res/imdb.png'
 
 
 
 
 const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
+
+
+
         let tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
         let murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
         const idle = null;
-        const [bannerData, setBannerData] = useState(idle);
+
+    const [bannerData, setBannerData] = useState(idle);
         let htm;
         let bannerMovieURL = 'https://api.themoviedb.org/3/movie/' + id + '?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US';
         if(type=="t"){
@@ -38,6 +43,12 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
             if (i < bannerData.genres.length) return bannerData.genres[i].id;
             else return "";
         }
+            function getColor(vote){
+                if(vote>=8) return 'lime';
+                else if(vote>=5) return 'orange';
+                else return 'red';
+            }
+
 
 
 
@@ -56,14 +67,14 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                         <div className="movie-title">
                             <h1>{bannerData.title}</h1>
                         </div>
-                        <h2 style={{marginTop: "10px", color: "black",   textShadow: "0px 0px 2px #fff" }}>{bannerData.tagline}</h2>
+                        <h2>{bannerData.tagline}</h2>
                         <div className="release-date">Release Date: {bannerData.release_date}</div>
-                        {/*<span className="language">{bannerData.production_countries[0].name} ({bannerData.original_language.toUpperCase()})</span>*/}
+                        <span className="language">{(bannerData.production_countries.length>0)?bannerData.production_countries[0].name:""} ({bannerData.original_language.toUpperCase()})</span>
                     </div>
                     <div className="about-movie">
                         <div className="rating">
-                            <img src="res/imdb.png" alt=""/>
-                            {/*<span className="val" style="color: ${getColor(bannerData.vote_average)}">${bannerData.vote_average.toFixed(1)}</span>*/}
+                            <img src={ratingLogo} alt=""/>
+                            <span className="val" style={{color: getColor(bannerData.vote_average)}}>{bannerData.vote_average.toFixed(1)}</span>
                         </div>
 
 
@@ -108,7 +119,8 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                 </div>
 
 
-                <Swipes setId={setId} id={id} changeRoute={changeRoute} setType={setType} url={murl}/>
+                <Swipes setId={setId} id={id} xp={0} changeRoute={changeRoute} setType={setType} url={murl}/>
+
             {/*    just dont pass id attribute if you dont want to change swiper on reloading of spotlight*/}
 
             </>
@@ -122,6 +134,11 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
             function giveGenreID(i) {
                 if (i < bannerData.genres.length) return bannerData.genres[i].id;
                 else return "";
+            }
+            function getColor(vote){
+                if(vote>=8) return 'lime';
+                else if(vote>=5) return 'orange';
+                else return 'red';
             }
 
 
@@ -141,15 +158,16 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                             <div className="movie-title">
                                 <h1>{bannerData.name}</h1>
                             </div>
-                            <h2 style={{marginTop: "10px", color: "black",   textShadow: "0px 0px 3px #fff" }}>{bannerData.tagline}</h2>
+                            <h2>{bannerData.tagline}</h2>
                             <div className="release-date">Release Date: {bannerData.first_air_date}</div>
-                            {/*<span className="language">{bannerData.production_countries[0].name} ({bannerData.original_language.toUpperCase()})</span>*/}
+                            <span className="language">{(bannerData.production_countries.length>0)?bannerData.production_countries[0].name:""} ({bannerData.original_language.toUpperCase()})</span>
                         </div>
                         <div className="about-movie">
                             <div className="rating">
-                                <img src="res/imdb.png" alt=""/>
-                                {/*<span className="val" style="color: ${getColor(bannerData.vote_average)}">${bannerData.vote_average.toFixed(1)}</span>*/}
+                                <img src={ratingLogo} alt=""/>
+                                <span className="val" style={{color: getColor(bannerData.vote_average)}}>{bannerData.vote_average.toFixed(1)}</span>
                             </div>
+                             {/*getColor(bannerData.vote_average*/}
 
 
                             <div className="category">
@@ -188,7 +206,7 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                         {bannerData.overview}
                     </div>
                 </div>
-                    <Swipes setId={setId} id={id} changeRoute={changeRoute} setType={setType} url={tvurl}/>
+                    <Swipes setId={setId} id={id} xp={0} changeRoute={changeRoute} setType={setType} url={tvurl}/>
 
 
 
