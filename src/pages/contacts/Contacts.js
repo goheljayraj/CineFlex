@@ -3,9 +3,11 @@ import './contacts.css'
 
 const delay = ms => new Promise(
     resolve => setTimeout(resolve, ms)
+
 );
 
 const Contacts = () => {
+
     const [inputs, setInputs] = useState({});
 
 

@@ -35,7 +35,7 @@ function Swipes(props){
             });
             setTiles(res);
         });
-    }, []);
+    }, [props.id]);
 
 
     return (

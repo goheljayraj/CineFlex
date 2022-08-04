@@ -7,8 +7,8 @@ import Swipes from "../../components/Swipes/Swipes";
 
 
 const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
-        const tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
-        const murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+        let tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+        let murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
         const idle = null;
         const [bannerData, setBannerData] = useState(idle);
         let htm;
@@ -21,6 +21,8 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                     console.log(data);
                     setBannerData(data);
                     window.scrollTo({top: 61, behavior: 'smooth'});
+                    tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+                    murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
 
                 })
             }
@@ -106,7 +108,8 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                 </div>
 
 
-                <Swipes setId={setId} changeRoute={changeRoute} setType={setType} url={murl}/>
+                <Swipes setId={setId} id={id} changeRoute={changeRoute} setType={setType} url={murl}/>
+            {/*    just dont pass id attribute if you dont want to change swiper on reloading of spotlight*/}
 
             </>
         }}
@@ -185,7 +188,7 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                         {bannerData.overview}
                     </div>
                 </div>
-                    <Swipes setId={setId} changeRoute={changeRoute} setType={setType} url={tvurl}/>
+                    <Swipes setId={setId} id={id} changeRoute={changeRoute} setType={setType} url={tvurl}/>
 
 
 

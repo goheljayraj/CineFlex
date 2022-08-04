@@ -14,7 +14,6 @@ function App() {
     const [genID, setGenID] = useState()
     const [type, setType] = useState("m")
     let res;
-    console.log("kailelelele")
     if (route === 'home') {
         res = <Home changeRoute={setRoute} setId={setId} setType={setType}/>;
     } else if (route === 'contacts') {
