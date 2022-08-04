@@ -235,7 +235,7 @@
     color: yellow;
     text-shadow: 3px 3px 3px black;
     text-decoration: none;
-    
+
 
 }
 .title-container .language{
@@ -379,4 +379,8 @@
     /*padding: 2px 5px;*/
     color: white;
 
+}
+.related-heading{
+    color: white;
+    margin-left: 10px;
 }

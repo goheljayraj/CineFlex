@@ -118,6 +118,10 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                     </div>
                 </div>
 
+                <div className="related-heading">
+                    <h3>Related Movies</h3>
+                </div>
+
 
                 <Swipes setId={setId} id={id} xp={0} changeRoute={changeRoute} setType={setType} url={murl}/>
 
@@ -206,6 +210,11 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                         {bannerData.overview}
                     </div>
                 </div>
+
+                    <div className="related-heading">
+                        <h3>Related TV Shows</h3>
+                    </div>
+
                     <Swipes setId={setId} id={id} xp={0} changeRoute={changeRoute} setType={setType} url={tvurl}/>
 
 
