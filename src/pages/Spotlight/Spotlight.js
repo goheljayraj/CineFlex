@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import './Spotlight.css'
 import Navbar from "../../components/Navbar/Navbar";
+import Swipes from "../../components/Swipes/Swipes";
 
 
 
 
-const Spotlight = ({id, changeGen, changeRoute, type}) => {
-
+const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
+        const tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+        const murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
         const idle = null;
         const [bannerData, setBannerData] = useState(idle);
         let htm;
@@ -18,9 +20,11 @@ const Spotlight = ({id, changeGen, changeRoute, type}) => {
                 fetch(bannerMovieURL).then(res => res.json()).then(data => {
                     console.log(data);
                     setBannerData(data);
+                    window.scrollTo({top: 61, behavior: 'smooth'});
+
                 })
             }
-            , []);
+            , [id]);
 
         if(type=="m")
         {function giveGenre(i) {
@@ -38,7 +42,8 @@ const Spotlight = ({id, changeGen, changeRoute, type}) => {
         if (bannerData == null) {
             htm = <div>Loading</div>
         } else {
-            htm = <div className="htm">
+            htm =<>
+                <div className="htm">
 
                 <div className="banner-img">
                     <img src={"https://image.tmdb.org/t/p/w500" + bannerData.backdrop_path} alt={bannerData.title}/>
@@ -87,6 +92,12 @@ const Spotlight = ({id, changeGen, changeRoute, type}) => {
 
                     </div>
                 </div>
+
+
+
+
+
+            </div>
                 <div className="overview">
                     <div className="overview-title">Overview:</div>
                     <div className="overview-content" id="overview-content">
@@ -95,10 +106,9 @@ const Spotlight = ({id, changeGen, changeRoute, type}) => {
                 </div>
 
 
+                <Swipes setId={setId} changeRoute={changeRoute} setType={setType} url={murl}/>
 
-
-
-            </div>
+            </>
         }}
         else{
             function giveGenre(i) {
@@ -116,7 +126,8 @@ const Spotlight = ({id, changeGen, changeRoute, type}) => {
             if (bannerData == null) {
                 htm = <div>Loading</div>
             } else {
-                htm = <div className="htm">
+                htm =<>
+                    <div className="htm">
 
                     <div className="banner-img">
                         <img src={"https://image.tmdb.org/t/p/w500" + bannerData.backdrop_path} alt={bannerData.title}/>
@@ -166,15 +177,19 @@ const Spotlight = ({id, changeGen, changeRoute, type}) => {
                         </div>
                     </div>
 
-                    <div className="overview">
-                        <div className="overview-title">Overview:</div>
-                        <div className="overview-content" id="overview-content">
-                            {bannerData.overview}
-                        </div>
-                    </div>
-
 
                 </div>
+                <div className="overview">
+                    <div className="overview-title">Overview:</div>
+                    <div className="overview-content" id="overview-content">
+                        {bannerData.overview}
+                    </div>
+                </div>
+                    <Swipes setId={setId} changeRoute={changeRoute} setType={setType} url={tvurl}/>
+
+
+
+                </>
             }
 
         }
@@ -188,7 +203,6 @@ return (
 
 
             <div className="banner">{htm}</div>
-
 
         </>
 

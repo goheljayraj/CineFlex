@@ -8,6 +8,9 @@ const Navbar = (props) => {
                     <a href="#" onClick={() => {props.jayraj('home')}}>Home</a>
                     <a href="#" onClick={() => {props.jayraj('tvshows')}}>TV Shows</a>
                     <a href="#" onClick={() => {props.jayraj('contacts')}}>Contacts</a>
+                    <a href="#" onClick={() => {props.jayraj('testMe')}}>TestArea</a>
+
+
                 </div>
             </div>
     );

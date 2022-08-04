@@ -3,6 +3,9 @@
     position: relative;
 
 }
+.banner{
+    background-color: black;
+}
 .movie-banner{
     width: 100%;
     max-width: 1400px;
@@ -236,7 +239,7 @@
     width: 100%;
     max-width: 1400px;
     margin: 0px auto;
-    position: absolute;
+    position: static;
     background-color: black;
 
 }
