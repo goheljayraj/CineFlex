@@ -13,9 +13,12 @@ function App() {
     const [id, setId] = useState(-1);
     const [genID, setGenID] = useState()
     const [type, setType] = useState("m")
+    const [srch, setSrch] = useState('');
+
+
     let res;
     if (route === 'home') {
-        res = <Home changeRoute={setRoute} setId={setId} setType={setType}/>;
+        res = <Home changeRoute={setRoute} setId={setId} setType={setType} srch={srch} setSrch={setSrch}/>;
     } else if (route === 'contacts') {
         res = <Contacts/>;
     } else if (route === 'tvshows') {
@@ -26,10 +29,12 @@ function App() {
         res = <Tiles ID={genID} changeRoute={setRoute} setId={setId} type={type}/>
     } else if (route==='testMe'){
         res = <TestMe changeRoute={setRoute} setId={setId} setType={setType} />
+    } else if(route==='msrch'){
+        res = <Tiles ID={genID} changeRoute={setRoute} setId={setId} type={type} url={'https://api.themoviedb.org/3/search/movie?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&query='+srch+'&page=1&include_adult=false'}/>
     }
 
     return <div>
-        <Navbar jayraj={setRoute}/>
+        <Navbar jayraj={setRoute} srch={srch} setSrch={setSrch} />
         {res}
     </div>
 }

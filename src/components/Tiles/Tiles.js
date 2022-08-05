@@ -12,7 +12,8 @@ const Tiles = (props) => {
 
     let topURL = props.url;
     const [tiles, setTiles] = useState([]);
-
+    // console.log('jayraj',props.url)
+    // console.log(topURL)
     useEffect(() => {
         let res = [];
     if(props.ID==null) {
@@ -25,6 +26,7 @@ const Tiles = (props) => {
                 }} key={id} url={IMG_URL + poster_path} movieName={title == null ? name : title} overview={overview}/>);
             });
             setTiles(res);
+            // console.log(tiles)
         });
     }
     else{
@@ -57,7 +59,7 @@ const Tiles = (props) => {
 
         }
     }
-    }, [])
+    }, [props.url])
 
 
     return (
