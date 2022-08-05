@@ -7,6 +7,7 @@ import TVShows from "./pages/TV Shows/TVShows";
 import Spotlight from "./pages/Spotlight/Spotlight";
 import Tiles from "./components/Tiles/Tiles";
 import TestMe from "./pages/TestMe"
+import SearchTiles from "./components/SearchTiles/SearchTiles";
 
 function App() {
     const [route, setRoute] = useState('home');
@@ -30,7 +31,7 @@ function App() {
     } else if (route==='testMe'){
         res = <TestMe changeRoute={setRoute} setId={setId} setType={setType} />
     } else if(route==='msrch'){
-        res = <Tiles ID={genID} changeRoute={setRoute} setId={setId} type={type} url={'https://api.themoviedb.org/3/search/movie?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&query='+srch+'&page=1&include_adult=false'}/>
+        res = <SearchTiles ID={genID} changeRoute={setRoute} setId={setId} type={type} srch={srch}  />
     }
 
     return <div>
