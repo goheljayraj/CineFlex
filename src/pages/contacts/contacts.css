@@ -73,12 +73,13 @@
     flex-direction: column;
 
 }
-input[type=text]{
-    width: 200px;
-    /*padding: 12px 20px;*/
+
+ input[type=text]{
+    width: 350px;
+    padding: 12px 20px;
     margin: 8px 25px;
 
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 5px;
 
 }
@@ -86,7 +87,7 @@ input[type=text]{
     color: #dfdfdf;
 }
 .from-right .message textarea{
-    height: 154px;
+    height: 128px;
     width: 350px;
     padding: 12px 20px;
     margin: 8px 25px;

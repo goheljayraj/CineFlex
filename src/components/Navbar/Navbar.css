@@ -46,3 +46,25 @@
     outline: none;
     cursor: pointer;
 }
+
+
+input[type=text]{
+    width: 200px;
+    /*padding: 12px 20px;*/
+    margin: 8px 25px;
+
+    border: none;
+    border-radius: 5px;
+
+}
+
+
+.navbar-input input[type=text]{
+     width: 200px;
+     /*padding: 12px 20px;*/
+     margin: 8px 25px 8px 10px;
+
+     border: none;
+     border-radius: 5px;
+
+ }

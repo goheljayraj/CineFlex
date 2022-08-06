@@ -22,10 +22,11 @@ const Navbar = (props) => {
 
 
                     <form onSubmit={handleSubmit} className="search-box">
-
-                        <input type="text" autoComplete="off" placeholder="Search ..." name="search"
+                        <div className="navbar-input">
+                        <input  type="text" autoComplete="off" placeholder="Search ..." name="search"
                                value={props.srch} onChange={(e) => {props.setSrch(e.target.value)}}
                                className="search-movie" id="search-movie"/>
+                        </div>
 
                         <button type="submit">
                             <i className="fas fa-search"></i>
