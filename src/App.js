@@ -8,6 +8,7 @@ import Spotlight from "./pages/Spotlight/Spotlight";
 import Tiles from "./components/Tiles/Tiles";
 import TestMe from "./pages/TestMe"
 import SearchTiles from "./components/SearchTiles/SearchTiles";
+import Footer from "./components/Footer/Footer";
 
 function App() {
     const [route, setRoute] = useState('home');
@@ -37,6 +38,7 @@ function App() {
     return <div>
         <Navbar jayraj={setRoute} srch={srch} setSrch={setSrch} />
         {res}
+        <Footer/>
     </div>
 }
 

@@ -26,7 +26,7 @@ const Tiles = (props) => {
                 }} key={id} url={IMG_URL + poster_path} movieName={title == null ? name : title} overview={overview}/>);
             });
             setTiles(res);
-            // console.log(tiles)
+            console.log(tiles)
         });
     }
     else{
