@@ -58,6 +58,7 @@ function Swipes(props){
                     navigation={true}
                     initialSlide={props.xp}
 
+
                 // pagination={{ clickable: true }}
                 // scrollbar={{ draggable: true }}
                     onSwiper={(swiper) => console.log(swiper)}

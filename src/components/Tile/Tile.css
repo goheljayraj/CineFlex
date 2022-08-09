@@ -18,6 +18,7 @@
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
+    color:white;
 
 }
 .tile-screen:hover{
@@ -32,6 +33,7 @@
     margin-bottom: 30px;
     font-size: large;
     color: white;
+
 }
 .movie-overview{
     margin: 10px;
