@@ -39,11 +39,13 @@ function Cast(props){
 
                 // const { birthday} = cast_data;
                 // console.log(cast_data)
+                let damp = character==null?'':' as '+ character;
                 res.push(<Tile changeRoute={(routeName) => {
                     console.log("kair",id)
                     props.setId(id);
                     props.changeRoute(routeName);
-                }} key={id} url={IMG_URL + profile_path} movieName={original_name + ' as '+ character} overview={'Character'}/>);
+
+                }} key={id} url={IMG_URL + profile_path} movieName={original_name + damp} overview={'Character'}/>);
             });
             console.log(res)
             setTiles(res);

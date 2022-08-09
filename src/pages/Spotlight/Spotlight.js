@@ -3,6 +3,7 @@ import './Spotlight.css'
 import Navbar from "../../components/Navbar/Navbar";
 import Swipes from "../../components/Swipes/Swipes";
 import ratingLogo from'../../res/imdb.png'
+import Cast from "../../components/Cast/Cast";
 
 
 
@@ -13,7 +14,10 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
 
         let tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
         let murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
-        const idle = null;
+        let tvCredURL = 'https://api.themoviedb.org/3/tv/'+ id +'/aggregate_credits?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+    let mvCredURL = 'https://api.themoviedb.org/3/movie/'+ id +'/credits?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+
+    const idle = null;
 
     const [bannerData, setBannerData] = useState(idle);
         let htm;
@@ -28,6 +32,7 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
                     window.scrollTo({top: 61, behavior: 'smooth'});
                     tvurl='https://api.themoviedb.org/3/tv/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
                     murl= 'https://api.themoviedb.org/3/movie/'+id+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
+                    // tvCredURL  = 'https://api.themoviedb.org/3/tv/'+ id +'/aggregate_credits?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1'
 
                 })
             }
@@ -111,11 +116,24 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
 
 
             </div>
-                <div className="overview">
-                    <div className="overview-title">Overview:</div>
-                    <div className="overview-content" id="overview-content">
-                        {bannerData.overview}
+                <div className="ocast">
+
+
+                    <div className="overview">
+                        <div className="overview-title">Overview:</div>
+                        <div className="overview-content" id="overview-content">
+                            {bannerData.overview}
+                        </div>
                     </div>
+                    <div className="castOP">
+
+                        <div className="cast-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cast:</div>
+
+                        <Cast setId={setId} id={id} changeRoute={changeRoute} url={mvCredURL}/>
+
+
+                    </div>
+
                 </div>
 
                 <div className="related-heading">
@@ -204,12 +222,25 @@ const Spotlight = ({id, changeGen, changeRoute, type, setId, setType}) => {
 
 
                 </div>
+                    <div className="ocast">
+
+
                 <div className="overview">
                     <div className="overview-title">Overview:</div>
                     <div className="overview-content" id="overview-content">
                         {bannerData.overview}
                     </div>
                 </div>
+                        <div className="castOP">
+
+                            <div className="cast-title">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cast:</div>
+
+                            <Cast setId={setId} id={id} changeRoute={changeRoute} url={tvCredURL}/>
+
+
+                        </div>
+
+                    </div>
 
                     <div className="related-heading">
                         <h3>Related TV Shows</h3>

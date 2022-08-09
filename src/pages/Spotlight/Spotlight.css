@@ -250,22 +250,44 @@
 
 
 }
+
+.ocast{
+    display: flex;
+}
+
 .overview{
     z-index: 105;
     color: #dfdfdf;
-    width: 100%;
+    width: 70%;
     max-width: 1400px;
-    margin: 0px auto;
+    /*margin: 0px auto;*/
     position: static;
     background-color: black;
+
+
 
 }
 .overview-title{
     font-size: 2rem;
     background-color: black;
 
+
     /*margin: 0px auto;*/
     padding: 10px;
+
+}
+.cast-title{
+    font-size: 2rem;
+    background-color: black;
+    /*margin: 0px auto;*/
+    padding: 10px;
+    color: #dfdfdf;
+
+}
+.castOP{
+    box-sizing: border-box;
+    width: 30%;
+
 
 }
 .overview .overview-content{
